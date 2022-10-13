@@ -8,24 +8,21 @@ export const GenerateContainer = () => {
 
     const handleGenerate = () => {
       setGenerated(!generated);
-      
     }
 
     const StyledGenerateContainer = styled.div`
     
     `;
-  
-    const StyledResults = styled.div`
-    
-    `;
-
 
     return (
         <StyledGenerateContainer>
-            <Button onClick={() => {handleGenerate()}}>Generate</Button>
-            <StyledResults>
-                {generated && <ResultsContainer/>}
-            </StyledResults>
+            {generated ? 
+                (<Button onClick={() => {handleGenerate()}}>Generate</Button>) : (
+               <>
+                <ResultsContainer/>
+                <Button onClick={() => {handleGenerate()}}>I don't like these, pick again</Button>
+               </>
+            )}
         </StyledGenerateContainer>
     )
 }
