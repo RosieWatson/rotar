@@ -51,7 +51,7 @@ const App = () => {
     if (page === 'add') {
       return <AddPeopleContainer/>;
     }
-    return <HomeContainer />
+    return <HomeContainer setPage={setPage} />
   }
 
   return (

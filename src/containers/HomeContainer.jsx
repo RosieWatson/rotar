@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { Progress } from 'react95';
-import { TaskBar } from '@react95/core';
+import { TaskBar, Tree } from '@react95/core';
 import original from 'react95/dist/themes/original';
+const { icons } = Tree;
 
 const BackgroundContainer = styled.div`
   background-image: url(https://github.com/RosieWatson/rotar/blob/main/desktop-background.jpg?raw=true);
@@ -22,9 +23,39 @@ const TaskBarContainer = styled.div`
   box-shadow: 0px -2px grey;
 `
 
-export const HomeContainer = () => {
-  const [fakeLoad, setFakeLoad] = useState(90)
+export const HomeContainer = ({ setPage }) => {
+  const [fakeLoad, setFakeLoad] = useState(0)
   const [loaded, setLoaded] = useState(false)
+
+  const treeNodes = {
+    data: [
+       {
+         id: 0,
+         label: 'Admin',
+         children: [
+           {
+             id: 1,
+             label: 'add_people.exe',
+             icon: <icons.FILE_SETTINGS />,
+             onClick: () => setPage('add')
+           },
+         ],
+       },
+       {
+         id: 2,
+         label: 'Groups',
+         children: [
+           {
+             id: 1,
+             label: 'see_groups.pdf',
+             icon: <icons.FILE_EXECUTABLE />,
+             onClick: () => setPage('gen')
+           },
+         ],
+       },
+     ],
+   };
+   
 
   useEffect(() => {
     // Add a stop and hover on 69%
@@ -46,6 +77,9 @@ export const HomeContainer = () => {
   return (
     <ThemeProvider theme={original}>
       {loaded ? <BackgroundContainer>
+         <div style={{ marginLeft: '25px'}}>
+         <Tree {...treeNodes} />
+          </div>
         <TaskBarContainer>
           <TaskBar />
        </TaskBarContainer>
