@@ -1,4 +1,4 @@
-{
+export const data = {
   people: [
     {
       id: 1,
