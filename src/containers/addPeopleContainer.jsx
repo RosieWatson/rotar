@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "styled-components"
 import { useForm } from "react-hook-form";
 import { Checkbox, Button, TextField, Select } from "react95";
+import { addPerson } from "../dataUtils";
 
 const timezones = [
   { value: "us", label: "US"},
@@ -17,7 +18,7 @@ export const AddPeopleContainer = () => {
   }
 
   const onSubmit = (data) => {
-    console.log(data)
+    addPerson(data);
     setAddSuccess(true);
   };
 
