@@ -11,7 +11,7 @@ import original from 'react95/dist/themes/original';
 import ms_sans_serif from 'react95/dist/fonts/ms_sans_serif.woff2';
 import ms_sans_serif_bold from 'react95/dist/fonts/ms_sans_serif_bold.woff2';
 import { GenerateContainer } from './containers/GenerateContainer';
-import { AddPeopleContainer } from "./containers/AddPeopleContainer";
+import { AddPeopleContainer } from "./containers/addPeopleContainer";
 import { HomeContainer } from './containers/HomeContainer';
 import { importDataIntoLocalStorage } from "./dataUtils";
 import { TaskBar, List, Tree } from "@react95/core";

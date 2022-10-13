@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Checkbox, Button, TextField, Select } from "react95";
 import { addPerson } from "../dataUtils";
 
+// timezones for selection
 const timezones = [
   { value: "pdt", label: "USA"},
   { value: "gmt", label: "UK"}
