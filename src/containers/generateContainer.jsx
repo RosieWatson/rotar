@@ -5,9 +5,10 @@ import { ResultsContainer } from './resultsContainer';
 export const GenerateContainer = () => {
 
     const [generated, setGenerated] = useState(false)
+    const [generating, setGenerating] = useState(false)
 
     const handleGenerate = () => {
-      setGenerated(!generated);
+      setGenerated(true);
     }
 
     const StyledGenerateContainer = styled.div`
@@ -16,12 +17,12 @@ export const GenerateContainer = () => {
 
     return (
         <StyledGenerateContainer>
-            {generated ? 
-                (<Button onClick={() => {handleGenerate()}}>Generate</Button>) : (
-               <>
-                <ResultsContainer/>
-                <Button onClick={() => {handleGenerate()}}>I don't like these, pick again</Button>
-               </>
+            {!generated ? 
+                (<Button onClick={() => {handleGenerate()}}>Generate</Button>) :
+                (
+                    <>
+                        <ResultsContainer/>
+                    </>
             )}
         </StyledGenerateContainer>
     )
