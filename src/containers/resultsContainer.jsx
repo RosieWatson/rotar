@@ -1,4 +1,4 @@
-import { PeopleList } from "../components/list"
+import { PeopleList } from "../components/List"
 import { generateGroups } from "../services/generator"
 import styled from "styled-components"
 
