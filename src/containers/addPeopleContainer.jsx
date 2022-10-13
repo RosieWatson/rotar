@@ -5,8 +5,8 @@ import { Checkbox, Button, TextField, Select } from "react95";
 import { addPerson } from "../dataUtils";
 
 const timezones = [
-  { value: "us", label: "US"},
-  { value: "uk", label: "UK"}
+  { value: "pdt", label: "US"},
+  { value: "gmt", label: "UK"}
 ]
 
 export const AddPeopleContainer = () => {
