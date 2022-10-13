@@ -1,12 +1,20 @@
 import React, {useState} from 'react';
-import { Button, Hourglass } from 'react95';
+import { Button, Hourglass, Select } from 'react95';
 import { ResultsContainer } from './resultsContainer';
+import styled from 'styled-components';
+
 export const GenerateContainer = () => {
 
     const [generated, setGenerated] = useState(false)
     const [groupSize, setGroupSize] = useState(2)
     const [generating, setGenerating] = useState(false)
 
+    const options =   [
+        { value: 2, label: "Pairs"},
+        { value: 3, label: "3"},
+        { value: 4, label: "4"},
+        { value: 5, label: "5"},
+    ]
     const handleGenerate = () => {
 
       setGenerating(true);
@@ -16,10 +24,28 @@ export const GenerateContainer = () => {
       }, 3000);
     }
 
+    const FormContainer = styled.div`
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    `
+
     return (
         <div>
             {(!generated && !generating) ? 
-                (<Button onClick={() => {handleGenerate()}}>Generate</Button>) 
+                (
+                <FormContainer>
+                    <label htmlFor="groupSize">Group Size</label>
+                    <Select
+                        id="groupSize"
+                        options={options}
+                        defaultValue={3}
+                        onSelect = {(e) =>setGroupSize(e)}
+                    />
+                <Button onClick={() => {handleGenerate()}}>Generate</Button>
+                    We don't like loneliness, so we'll shuffle some groups around in terms of size if people will be by themselves!
+                </FormContainer>
+                ) 
                     :
                 (<>{generating ? <Hourglass/> : <ResultsContainer groupSize = {groupSize}/>}</>)
             }
