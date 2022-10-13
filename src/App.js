@@ -55,7 +55,7 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div style={{backgroundColor: '#008281'}}>
       <GlobalStyles />
       <ThemeProvider theme={original}>
         <AppContainer>
