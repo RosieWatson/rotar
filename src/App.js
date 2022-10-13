@@ -12,8 +12,8 @@ import ms_sans_serif_bold from 'react95/dist/fonts/ms_sans_serif_bold.woff2';
 import { GenerateContainer } from './containers/generateContainer';
 import { AddPeopleContainer } from "./containers/addPeopleContainer";
 import { HomeContainer } from './containers/HomeContainer';
-import { Navigator } from './components/navigator';
 import { importDataIntoLocalStorage } from "./dataUtils";
+import { TaskBar, List, Tree } from "@react95/core";
 
 const GlobalStyles = createGlobalStyle`
   ${styleReset}
@@ -34,6 +34,25 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
+const TaskBarContainer = styled.div`
+  background-color: rgb(195, 199, 203);
+  width: 100%;
+  height: 34px;
+  bottom: 0;
+  position: absolute;
+  box-shadow: 0px -2px grey;
+`
+const MenuContainer = styled(TaskBarContainer)`
+  height: 100%;
+  position: static;
+  margin-left: -5px;
+  padding: 16px 0px 32px 0px;
+  
+  li {
+    cursor: pointer;
+  }
+`;
+
 const AppContainer = styled.div`
   display: flex;
   justify-content: space-around;
@@ -47,7 +66,7 @@ const AppContainer = styled.div`
 importDataIntoLocalStorage();
 
 const App = () => {
-  const [page, setPage] = useState('add')
+  const [page, setPage] = useState('home')
 
   const renderPage = () => {
     if (page === 'gen') {
@@ -63,9 +82,21 @@ const App = () => {
     <div style={{backgroundColor: '#008281'}}>
       <GlobalStyles />
       <ThemeProvider theme={original}>
-        <Navigator handleNav={setPage}/>
         <AppContainer>
           {renderPage()}
+          <TaskBarContainer>
+            <TaskBar
+              list={
+                <MenuContainer>
+                  <List>
+                    <List.Item onClick={() => setPage('home')}><Tree.icons.FILE_MEDIA/>Home</List.Item>
+                    <List.Item onClick={() => setPage('gen')}><Tree.icons.FILE_EXECUTABLE/>Generate groups</List.Item>
+                    <List.Item onClick={() => setPage('add')}><Tree.icons.FILE_SETTINGS/>Add a person</List.Item>
+                  </List>
+                </MenuContainer>
+              }
+            />
+          </TaskBarContainer>
         </AppContainer>
       </ThemeProvider>
     </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { Progress } from 'react95';
-import { TaskBar, Tree } from '@react95/core';
+import { Tree } from '@react95/core';
 import original from 'react95/dist/themes/original';
 const { icons } = Tree;
 
@@ -12,15 +12,6 @@ const BackgroundContainer = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-`
-
-const TaskBarContainer = styled.div`
-  background-color: rgb(195, 199, 203);
-  width: 100%;
-  height: 34px;
-  bottom: 0;
-  position: absolute;
-  box-shadow: 0px -2px grey;
 `
 
 export const HomeContainer = ({ setPage }) => {
@@ -80,9 +71,6 @@ export const HomeContainer = ({ setPage }) => {
          <div style={{ marginLeft: '25px'}}>
          <Tree {...treeNodes} />
           </div>
-        <TaskBarContainer>
-          <TaskBar />
-       </TaskBarContainer>
       </BackgroundContainer> : <div style={{ width: '350px' }}>
         <Progress value={fakeLoad} />
       </div>}
