@@ -5,7 +5,6 @@ import { ResultsContainer } from './resultsContainer';
 export const GenerateContainer = () => {
 
     const [generated, setGenerated] = useState(false)
-    const [generating, setGenerating] = useState(false)
 
     const handleGenerate = () => {
       setGenerated(true);
