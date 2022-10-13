@@ -39,8 +39,7 @@ const AppContainer = styled.div`
   height: 100vh;
 `
 const App = () => {
-  const [page, setPage] = useState('home')
-
+  const [page, setPage] = useState('gen')
   return (
     <div>
       <GlobalStyles />
