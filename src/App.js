@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-import { styleReset, Button } from 'react95';
+import { styleReset} from 'react95';
 // pick a theme of your choice
 import original from 'react95/dist/themes/original';
 // original Windows95 font (optionally)
 import ms_sans_serif from 'react95/dist/fonts/ms_sans_serif.woff2';
 import ms_sans_serif_bold from 'react95/dist/fonts/ms_sans_serif_bold.woff2';
+import { GenerateContainer } from './containers/generateContainer';
 
 const GlobalStyles = createGlobalStyle`
   ${styleReset}
@@ -37,15 +38,21 @@ const AppContainer = styled.div`
   align-content: center;
   height: 100vh;
 `
-const App = () => (
-  <div>
-    <GlobalStyles />
-    <ThemeProvider theme={original}>
-      <AppContainer>
-        <Button>Generate</Button>
-      </AppContainer>
-    </ThemeProvider>
-  </div>
-);
+const App = () => {
+  const [page, setPage] = useState('home')
+
+  return (
+    <div>
+      <GlobalStyles />
+      <ThemeProvider theme={original}>
+        <AppContainer>
+          {(page === 'gen') ? 
+          <GenerateContainer/>
+        : (<div>Something here!</div>)}
+        </AppContainer>
+      </ThemeProvider>
+    </div>
+  )
+  };
 
 export default App;
