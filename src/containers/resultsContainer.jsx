@@ -3,9 +3,7 @@ import { data } from '../data'
 import { generateGroups } from "../services/generator"
 import styled from "styled-components"
 
-export const ResultsContainer = () => {
-
-    const groupSize = 3
+export const ResultsContainer = ({groupSize}) => {
 
     const generatedLists = () => {
         const { people }  = data
@@ -43,7 +41,7 @@ export const ResultsContainer = () => {
         justify-content: center;
         flex-wrap: nowrap;
         flex-direction: column;
-}`
+    `
 
     const GroupSection = styled.div`
         display: flex;
