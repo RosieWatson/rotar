@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 import { styleReset } from 'react95';
@@ -11,8 +11,9 @@ import ms_sans_serif from 'react95/dist/fonts/ms_sans_serif.woff2';
 import ms_sans_serif_bold from 'react95/dist/fonts/ms_sans_serif_bold.woff2';
 import { GenerateContainer } from './containers/generateContainer';
 import { AddPeopleContainer } from "./containers/addPeopleContainer";
+import { HomeContainer } from './containers/HomeContainer';
 import { Navigator } from './components/navigator';
-import { HomeContainer } from "./containers/HomeContainer";
+import { importDataIntoLocalStorage } from "./dataUtils";
 
 const GlobalStyles = createGlobalStyle`
   ${styleReset}
@@ -42,6 +43,9 @@ const AppContainer = styled.div`
   align-content: center;
   height: 100vh;
 `
+
+importDataIntoLocalStorage();
+
 const App = () => {
   const [page, setPage] = useState('home')
 
