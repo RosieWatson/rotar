@@ -14,7 +14,6 @@ import { AddPeopleContainer } from "./containers/addPeopleContainer";
 import { HomeContainer } from './containers/HomeContainer';
 import { Navigator } from './components/navigator';
 import { importDataIntoLocalStorage } from "./dataUtils";
-import { HomeContainer } from "./containers/HomeContainer";
 
 const GlobalStyles = createGlobalStyle`
   ${styleReset}
