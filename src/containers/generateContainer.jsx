@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import { Button } from 'react95';
 import { ResultsContainer } from './resultsContainer';
 export const GenerateContainer = () => {
@@ -7,14 +7,22 @@ export const GenerateContainer = () => {
     const [generated, setGenerated] = useState(false)
 
     const handleGenerate = () => {
-      setGenerated(true);
+      setGenerated(!generated);
     }
-  
-  
+
+    const StyledGenerateContainer = styled.div`
+    
+    `;
+
     return (
-        <>
-        <Button onClick={() => {handleGenerate()}}>Generate</Button>
-        {generated && <ResultsContainer/>}
-        </>
+        <StyledGenerateContainer>
+            {generated ? 
+                (<Button onClick={() => {handleGenerate()}}>Generate</Button>) : (
+               <>
+                <ResultsContainer/>
+                <Button onClick={() => {handleGenerate()}}>I don't like these, pick again</Button>
+               </>
+            )}
+        </StyledGenerateContainer>
     )
 }
