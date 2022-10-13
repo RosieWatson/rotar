@@ -47,7 +47,7 @@ const AppContainer = styled.div`
 importDataIntoLocalStorage();
 
 const App = () => {
-  const [page, setPage] = useState('home')
+  const [page, setPage] = useState('add')
 
   const renderPage = () => {
     if (page === 'gen') {
