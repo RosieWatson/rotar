@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Progress } from 'react95';
+import { TaskBar } from '@react95/core';
 
 export const HomeContainer = () => {
   const [fakeLoad, setFakeLoad] = useState(0)
@@ -24,7 +25,7 @@ export const HomeContainer = () => {
 
   return (
     <>
-      {loaded ? <div>hi there</div> : <div style={{ width: '350px'}}>
+      {loaded ? <TaskBar /> : <div style={{ width: '350px'}}>
       <Progress value={fakeLoad} />
         </div>}
     </>
