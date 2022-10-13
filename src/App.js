@@ -56,11 +56,11 @@ const App = () => {
     if (page === 'add') {
       return <AddPeopleContainer/>;
     }
-    return <HomeContainer />
+    return <HomeContainer setPage={setPage} />
   }
 
   return (
-    <div>
+    <div style={{backgroundColor: '#008281'}}>
       <GlobalStyles />
       <ThemeProvider theme={original}>
         <Navigator handleNav={setPage}/>

@@ -1,10 +1,61 @@
 import React, { useEffect, useState } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 import { Progress } from 'react95';
-import { TaskBar } from '@react95/core';
+import { TaskBar, Tree } from '@react95/core';
+import original from 'react95/dist/themes/original';
+const { icons } = Tree;
 
-export const HomeContainer = () => {
+const BackgroundContainer = styled.div`
+  background-image: url(https://github.com/RosieWatson/rotar/blob/main/desktop-background.jpg?raw=true);
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+`
+
+const TaskBarContainer = styled.div`
+  background-color: rgb(195, 199, 203);
+  width: 100%;
+  height: 34px;
+  bottom: 0;
+  position: absolute;
+  box-shadow: 0px -2px grey;
+`
+
+export const HomeContainer = ({ setPage }) => {
   const [fakeLoad, setFakeLoad] = useState(0)
   const [loaded, setLoaded] = useState(false)
+
+  const treeNodes = {
+    data: [
+       {
+         id: 0,
+         label: 'Admin',
+         children: [
+           {
+             id: 1,
+             label: 'add_people.exe',
+             icon: <icons.FILE_SETTINGS />,
+             onClick: () => setPage('add')
+           },
+         ],
+       },
+       {
+         id: 2,
+         label: 'Groups',
+         children: [
+           {
+             id: 1,
+             label: 'see_groups.pdf',
+             icon: <icons.FILE_EXECUTABLE />,
+             onClick: () => setPage('gen')
+           },
+         ],
+       },
+     ],
+   };
+   
 
   useEffect(() => {
     // Add a stop and hover on 69%
@@ -24,10 +75,17 @@ export const HomeContainer = () => {
   }, [fakeLoad]);
 
   return (
-    <>
-      {loaded ? <TaskBar /> : <div style={{ width: '350px'}}>
-      <Progress value={fakeLoad} />
-        </div>}
-    </>
+    <ThemeProvider theme={original}>
+      {loaded ? <BackgroundContainer>
+         <div style={{ marginLeft: '25px'}}>
+         <Tree {...treeNodes} />
+          </div>
+        <TaskBarContainer>
+          <TaskBar />
+       </TaskBarContainer>
+      </BackgroundContainer> : <div style={{ width: '350px' }}>
+        <Progress value={fakeLoad} />
+      </div>}
+    </ThemeProvider>
   )
 }
