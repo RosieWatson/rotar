@@ -8,12 +8,18 @@ const chunkTheBois = (people, size, section) => {
 
     // stops people being lonely, in this environment at least...
 
-    if (!isSuitableGroupSize(people.length, desiredGroupSize)){
-        desiredGroupSize = size + 1;
-    }
+    console.log(people.length, desiredGroupSize);
 
-    if (!isSuitableGroupSize(people.length, desiredGroupSize)){
-        desiredGroupSize = desiredGroupSize - 1;
+    if (people.length < desiredGroupSize){
+        desiredGroupSize = people.length
+    } else {
+        if (!isSuitableGroupSize(people.length, desiredGroupSize)){
+            desiredGroupSize = size + 1;
+        }
+
+        if (!isSuitableGroupSize(people.length, desiredGroupSize)){
+            desiredGroupSize = desiredGroupSize - 1;
+        }
     }
 
     for (let i = 0; i < people.length; i += desiredGroupSize) {

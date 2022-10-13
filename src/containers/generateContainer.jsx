@@ -30,6 +30,10 @@ export const GenerateContainer = () => {
         align-items: center;
     `
 
+    const handleSelectNumber = (e) => {
+        setGroupSize(e.target.value)
+    }
+
     return (
         <div>
             {(!generated && !generating) ? 
@@ -39,8 +43,7 @@ export const GenerateContainer = () => {
                     <Select
                         id="groupSize"
                         options={options}
-                        defaultValue={3}
-                        onSelect = {(e) =>setGroupSize(e)}
+                        onChange = {(e) => handleSelectNumber(e)}
                     />
                 <Button onClick={() => {handleGenerate()}}>Generate</Button>
                     We don't like loneliness, so we'll shuffle some groups around in terms of size if people will be by themselves!

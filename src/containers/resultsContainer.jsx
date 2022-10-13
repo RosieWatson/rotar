@@ -1,12 +1,11 @@
 import { PeopleList } from "../components/list"
-import { data } from '../data'
 import { generateGroups } from "../services/generator"
 import styled from "styled-components"
 
 export const ResultsContainer = ({groupSize}) => {
 
     const generatedLists = () => {
-        const { people }  = data
+        const people = JSON.parse(localStorage.getItem('data'));
         const groups = generateGroups(people, groupSize)
         const {ukOffice, gmt, pdt} = groups;
 
