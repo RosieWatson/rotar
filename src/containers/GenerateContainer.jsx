@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Button, Hourglass, Select } from 'react95';
-import { ResultsContainer } from './ResultsContainer';
+import { ResultsContainer } from './resultsContainer';
 import styled from 'styled-components';
 
 export const GenerateContainer = () => {
