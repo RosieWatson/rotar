@@ -9,7 +9,7 @@ export const ResultsContainer = () => {
     const generatedLists = () => {
         const { people }  = data
         const groups = generateGroups(people, groupSize)
-        return groups.map((group, index) => <PeopleList people={group}/>)
+        return groups.map((group, index) => <PeopleList group={group}/>)
     }
     return (
         <>
