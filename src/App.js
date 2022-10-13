@@ -1,5 +1,5 @@
 import React from 'react';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 import { styleReset, List, Divider, Button } from 'react95';
 // pick a theme of your choice
@@ -27,14 +27,23 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
+const AppContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  width: 100%;
+  flex-direction: row;
+  align-content: center;
+  height: 100vh;
+`
 const App = () => (
   <div>
     <GlobalStyles />
     <ThemeProvider theme={original}>
-      <List>
+      <AppContainer>
         <Button>Generate</Button>
-        <Divider />
-      </List>
+      </AppContainer>
     </ThemeProvider>
   </div>
 );
