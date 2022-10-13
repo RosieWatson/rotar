@@ -9,6 +9,7 @@ import ms_sans_serif from 'react95/dist/fonts/ms_sans_serif.woff2';
 import ms_sans_serif_bold from 'react95/dist/fonts/ms_sans_serif_bold.woff2';
 import { GenerateContainer } from './containers/generateContainer';
 import { AddPeopleContainer } from "./containers/addPeopleContainer";
+import { Navigator } from './components/navigator';
 
 const GlobalStyles = createGlobalStyle`
   ${styleReset}
@@ -55,6 +56,7 @@ const App = () => {
     <div>
       <GlobalStyles />
       <ThemeProvider theme={original}>
+        <Navigator handleNav={setPage}/>
         <AppContainer>
           {renderPage()}
         </AppContainer>
