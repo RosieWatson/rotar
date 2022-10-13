@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-import { styleReset, List, Divider, Button } from 'react95';
+import { styleReset, Button } from 'react95';
 // pick a theme of your choice
 import original from 'react95/dist/themes/original';
 // original Windows95 font (optionally)
