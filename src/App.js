@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 import { styleReset } from 'react95';
+import '@react95/icons/icons.css';
+
 // pick a theme of your choice
 import original from 'react95/dist/themes/original';
 // original Windows95 font (optionally)
@@ -9,8 +11,8 @@ import ms_sans_serif from 'react95/dist/fonts/ms_sans_serif.woff2';
 import ms_sans_serif_bold from 'react95/dist/fonts/ms_sans_serif_bold.woff2';
 import { GenerateContainer } from './containers/generateContainer';
 import { AddPeopleContainer } from "./containers/addPeopleContainer";
-import { HomeContainer } from './containers/HomeContainer';
 import { Navigator } from './components/navigator';
+import { HomeContainer } from "./containers/HomeContainer";
 
 const GlobalStyles = createGlobalStyle`
   ${styleReset}
@@ -54,7 +56,7 @@ const App = () => {
   }
 
   return (
-    <div style={{ margin: '45px' }}>
+    <div>
       <GlobalStyles />
       <ThemeProvider theme={original}>
         <Navigator handleNav={setPage}/>

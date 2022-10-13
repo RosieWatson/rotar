@@ -1,7 +1,9 @@
 import { List, ListItem } from "react95"
 
-export const PeopleList = ({people, name}) => {
+export const PeopleList = ({group}) => {
+
     const generatePeople = () => {
+        const {people} = group
         return people.map((person, index) => {
             return (
             <ListItem>
@@ -12,6 +14,9 @@ export const PeopleList = ({people, name}) => {
     }
     return (
         <List>
+            <ListItem primary size='sm'>
+                {group.name}
+             </ListItem>
             {generatePeople()}
         </List>
     )
