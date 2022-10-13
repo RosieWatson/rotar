@@ -8,6 +8,7 @@ import original from 'react95/dist/themes/original';
 import ms_sans_serif from 'react95/dist/fonts/ms_sans_serif.woff2';
 import ms_sans_serif_bold from 'react95/dist/fonts/ms_sans_serif_bold.woff2';
 import { GenerateContainer } from './containers/generateContainer';
+import { AddPeopleContainer } from "./containers/addPeopleContainer";
 
 const GlobalStyles = createGlobalStyle`
   ${styleReset}
@@ -32,22 +33,30 @@ const AppContainer = styled.div`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  align-content: flex-end;
   width: 100%;
   flex-direction: row;
   align-content: center;
   height: 100vh;
 `
 const App = () => {
-  const [page, setPage] = useState('gen')
+  const [page, setPage] = useState('home')
+
+  const renderPage = () => {
+    if (page === 'gen') {
+      return <GenerateContainer/>;
+    }
+    if (page === 'add') {
+      return <AddPeopleContainer/>;
+    }
+    return (<div>Something here!</div>)
+  }
+
   return (
     <div>
       <GlobalStyles />
       <ThemeProvider theme={original}>
         <AppContainer>
-          {(page === 'gen') ? 
-          <GenerateContainer/>
-        : (<div>Something here!</div>)}
+          {renderPage()}
         </AppContainer>
       </ThemeProvider>
     </div>
